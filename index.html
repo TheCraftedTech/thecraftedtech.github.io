@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TheCraftedTech</title>
+<meta name="description" content="Profilseite von TheCraftedTech — Projekte, angefangen mit OpenCue.">
+<link rel="icon" href="https://thecraftedtech.github.io/opencue/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700;800&family=Work+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    color-scheme: dark;
+    --bg: #000000;
+    --fg: #f5f5f5;
+    --fg-dim: #8a8a8f;
+    --fg-faint: #4a4a4f;
+    --line: #202024;
+    --accent: #ff8a1f;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'Work Sans', sans-serif;
+    --font-mono: 'IBM Plex Mono', monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img { max-width: 100%; display: block; }
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ---------- header ---------- */
+
+  header {
+    border-bottom: 1px solid var(--line);
+  }
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 22px;
+  }
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+  }
+  .gh {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--fg-dim);
+    text-decoration: none;
+  }
+  .gh:hover { color: var(--fg); }
+  .gh svg { width: 14px; height: 14px; fill: currentColor; }
+
+  /* ---------- hero ---------- */
+
+  .hero {
+    padding-block: 90px 100px;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.6rem, 7vw, 4.4rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 26px;
+    text-wrap: balance;
+  }
+  h1 .hl {
+    position: relative;
+    white-space: nowrap;
+  }
+  h1 .hl::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0.08em;
+    height: 0.1em;
+    background: var(--accent);
+    z-index: -1;
+    opacity: 0.9;
+  }
+  .lede {
+    font-size: 18px;
+    color: var(--fg-dim);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  /* ---------- section label ---------- */
+
+  .section-label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding-bottom: 36px;
+  }
+  .section-label span:first-child,
+  .section-label span:last-child {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--fg-faint);
+  }
+  .section-label .label-text {
+    font-family: var(--font-mono);
+    font-size: 11.5px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+  }
+  .section-label .line {
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  /* ---------- project entry ---------- */
+
+  .entry {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 56px;
+    align-items: center;
+    padding-block: 10px 64px;
+  }
+  @media (max-width: 760px) {
+    .entry { grid-template-columns: 1fr; gap: 28px; }
+  }
+
+  .entry-media {
+    border: 1px solid var(--line);
+    background: #050505;
+  }
+  .entry-media img {
+    width: 100%;
+    height: auto;
+  }
+
+  .entry-index {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--accent);
+    margin: 0 0 14px;
+  }
+
+  .entry h2 {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 2rem;
+    letter-spacing: -0.01em;
+    margin: 0 0 6px;
+  }
+
+  .entry .tagline {
+    color: var(--fg-dim);
+    font-size: 14.5px;
+    margin: 0 0 20px;
+  }
+
+  .entry .desc {
+    color: var(--fg-dim);
+    font-size: 15.5px;
+    margin: 0 0 22px;
+    max-width: 46ch;
+  }
+
+  .entry .stack {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--fg-faint);
+    letter-spacing: 0.02em;
+    margin: 0 0 26px;
+  }
+
+  .entry .links {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    font-family: var(--font-mono);
+    font-size: 13.5px;
+  }
+  .link-main {
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 2px;
+    transition: color .15s ease, border-color .15s ease;
+  }
+  .link-main:hover { color: var(--accent); border-color: var(--accent); }
+  .link-sub {
+    text-decoration: none;
+    color: var(--fg-faint);
+    transition: color .15s ease;
+  }
+  .link-sub:hover { color: var(--fg-dim); }
+
+  /* ---------- more note ---------- */
+
+  .more {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    color: var(--fg-faint);
+    padding-block: 4px 90px;
+  }
+
+  /* ---------- footer ---------- */
+
+  footer {
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--fg-faint);
+  }
+  footer .wrap {
+    padding-block: 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  footer a { text-decoration: none; }
+  footer a:hover { color: var(--accent); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap header-inner">
+    <a class="wordmark" href="#">TheCraftedTech</a>
+    <a class="gh" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></svg>
+      GitHub
+    </a>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <h1>Hey, ich bin<br><span class="hl">TheCraftedTech</span>.</h1>
+    <p class="lede">Ich baue eigene Tools und Software — von Weboberflächen über Minecraft-Plugins bis zu eingebetteter Hardware. Unten ein paar Projekte, angefangen mit dem aktuellsten.</p>
+  </section>
+
+  <div class="section-label">
+    <span>—</span>
+    <span class="label-text">Projekte</span>
+    <span class="line"></span>
+  </div>
+
+  <article class="entry">
+    <div class="entry-media">
+      <img src="https://thecraftedtech.github.io/opencue/assets/img/og-image.jpg" alt="OpenCue: 3D-Bühnenvorschau mit Lichtstrahlen" loading="lazy">
+    </div>
+    <div class="entry-copy">
+      <p class="entry-index">01</p>
+      <h2>OpenCue</h2>
+      <p class="tagline">Open-Source-Lichtstellpult für Windows</p>
+      <p class="desc">Fixtures patchen, Cues und Effekte programmieren, die Bühne live in 3D mitverfolgen. Läuft komplett offline, Shows als lesbares JSON, Steuerung auch vom Tablet aus.</p>
+      <p class="stack">Python · WebSocket · 3D-Simulation · Windows · GPL-3.0</p>
+      <div class="links">
+        <a class="link-main" href="https://thecraftedtech.github.io/opencue/" target="_blank" rel="noopener">Projekt ansehen</a>
+        <a class="link-sub" href="https://thecraftedtech.github.io/opencue/@demo/" target="_blank" rel="noopener">Live-Demo ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <p class="more">— weitere Projekte folgen —</p>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 TheCraftedTech</span>
+    <a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">github.com/TheCraftedTech</a>
+  </div>
+</footer>
+
+</body>
+</html>
+
