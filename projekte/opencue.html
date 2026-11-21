@@ -3,20 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>OpenCue — TheCraftedTech</title>
-<meta name="description" content="OpenCue ist ein Open-Source-Lichtstellpult für DMX unter Windows: 3D-Simulation, Cues, Effekte und Tablet-Fernsteuerung. Läuft offline.">
+<title>OpenCue — Open-Source-Lichtstellpult für Windows | TheCraftedTech</title>
+<meta name="description" content="OpenCue: freies Open-Source-DMX-Lichtstellpult für Windows mit 3D-Simulation, Cues, Effekten und Tablet-Fernsteuerung. Läuft offline, ohne Account.">
+<meta name="author" content="TheCraftedTech">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#07080b">
-<meta property="og:title" content="OpenCue — Open-Source-Lichtstellpult für Windows">
-<meta property="og:description" content="DMX-Lichtsteuerung mit 3D-Simulation, Cues, Effekten und Fernsteuerung per Tablet.">
+<link rel="canonical" href="https://thecraftedtech.github.io/projekte/opencue.html">
+<meta property="og:site_name" content="TheCraftedTech">
+<meta property="og:locale" content="de_DE">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/opencue-og.jpg">
+<meta property="og:title" content="OpenCue — Open-Source-Lichtstellpult für Windows | TheCraftedTech">
+<meta property="og:description" content="OpenCue: freies Open-Source-DMX-Lichtstellpult für Windows mit 3D-Simulation, Cues, Effekten und Tablet-Fernsteuerung. Läuft offline, ohne Account.">
+<meta property="og:url" content="https://thecraftedtech.github.io/projekte/opencue.html">
+<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/og/og-opencue.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="OpenCue — Lichtstellpult mit 3D-Bühnensimulation, Cue-Liste und Executor">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" type="image/png" href="../assets/img/logo-192.png">
+<meta name="twitter:title" content="OpenCue — Open-Source-Lichtstellpult für Windows | TheCraftedTech">
+<meta name="twitter:description" content="OpenCue: freies Open-Source-DMX-Lichtstellpult für Windows mit 3D-Simulation, Cues, Effekten und Tablet-Fernsteuerung. Läuft offline, ohne Account.">
+<meta name="twitter:image" content="https://thecraftedtech.github.io/assets/img/og/og-opencue.jpg">
+<meta name="twitter:image:alt" content="OpenCue — Lichtstellpult mit 3D-Bühnensimulation, Cue-Liste und Executor">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/logo-192.png">
 <link rel="apple-touch-icon" href="../assets/img/logo-192.png">
+<link rel="preload" href="../assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://thecraftedtech.github.io/projekte/opencue.html#app","name":"OpenCue","url":"https://thecraftedtech.github.io/projekte/opencue.html","description":"Open-Source-Lichtstellpult für DMX unter Windows mit GDTF-Fixtures, Cues, Effekten, 3D-Simulation und Fernsteuerung per Tablet.","applicationCategory":"MultimediaApplication","operatingSystem":"Windows 10, Windows 11","inLanguage":["de","en"],"license":"https://www.gnu.org/licenses/gpl-3.0.html","downloadUrl":"https://github.com/TheCraftedTech/opencue/releases","codeRepository":"https://github.com/TheCraftedTech/opencue","image":"https://thecraftedtech.github.io/assets/img/og/og-opencue.jpg","author":{"@id":"https://thecraftedtech.github.io/#person"},"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://thecraftedtech.github.io/"},{"@type":"ListItem","position":2,"name":"Projekte","item":"https://thecraftedtech.github.io/projekte/"},{"@type":"ListItem","position":3,"name":"OpenCue","item":"https://thecraftedtech.github.io/projekte/opencue.html"}]}]}</script>
 </head>
-<body class="oc">
+<body class="oc" data-share-image="../assets/img/og/og-opencue.jpg">
 
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
@@ -27,10 +43,8 @@
       <img src="../assets/img/logo-96.webp" alt="" width="36" height="36">
       TheCraftedTech
     </a>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
-      <svg class="icon"><use href="#i-menu"/></svg>
-    </button>
-    <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
+    <div class="nav-right">
+      <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
       <a href="../index.html">Start</a>
       <a href="index.html" aria-current="page">Projekte</a>
       <a href="../index.html#arbeitsweise">Arbeitsweise</a>
@@ -38,6 +52,11 @@
         <svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> GitHub
       </a>
     </nav>
+      <button class="icon-btn" type="button" data-share-open aria-label="Seite teilen" title="Seite teilen"><svg class="icon"><use href="#i-share"/></svg></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    </div>
   </div>
 </header>
 
@@ -60,12 +79,13 @@
         <a class="btn" href="https://thecraftedtech.github.io/opencue/@demo/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-play"/></svg> Live-Demo</a>
         <a class="btn" href="https://thecraftedtech.github.io/opencue/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-globe"/></svg> Projektseite &amp; Doku</a>
         <a class="btn" href="https://github.com/TheCraftedTech/opencue" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Quellcode</a>
+        <button class="btn" type="button" data-share-open><svg class="icon"><use href="#i-share"/></svg> Teilen</button>
       </div>
     </section>
 
     <figure class="window reveal">
       <div class="window-bar"><i></i><i></i><i></i><span>OpenCue — Demo-Show</span></div>
-      <img src="../assets/img/opencue-demo.webp" alt="OpenCue-Oberfläche mit 3D-Bühnensimulation, Cue-Liste, Executor und Fixture-Steuerung" width="1436" height="919">
+      <img src="../assets/img/opencue-demo.webp" alt="OpenCue-Oberfläche mit 3D-Bühnensimulation, Cue-Liste, Executor und Fixture-Steuerung" width="1436" height="919" data-zoom>
     </figure>
 
     <section class="sub-block reveal">

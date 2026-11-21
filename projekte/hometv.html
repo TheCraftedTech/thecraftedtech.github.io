@@ -3,20 +3,36 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Home TV — TheCraftedTech</title>
-<meta name="description" content="Home TV ist eine native Fire-TV-App, die Live-Fernsehen per SAT>IP direkt von der FRITZ!Box Cable abspielt — ohne Server und ohne Transcoding.">
+<title>Home TV — Live-TV für den Fire TV | TheCraftedTech</title>
+<meta name="description" content="Home TV spielt Live-Fernsehen per SAT&gt;IP direkt von der FRITZ!Box Cable auf dem Amazon Fire TV — ohne Server, ohne Transcoding. Open Source (MIT).">
+<meta name="author" content="TheCraftedTech">
+<meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="theme-color" content="#07080b">
-<meta property="og:title" content="Home TV — Live-TV für den Fire TV">
-<meta property="og:description" content="Live-Fernsehen direkt von der FRITZ!Box — ohne Server dazwischen.">
+<link rel="canonical" href="https://thecraftedtech.github.io/projekte/hometv.html">
+<meta property="og:site_name" content="TheCraftedTech">
+<meta property="og:locale" content="de_DE">
 <meta property="og:type" content="website">
-<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/logo-512.png">
-<meta name="twitter:card" content="summary">
-<link rel="icon" type="image/png" href="../assets/img/logo-192.png">
+<meta property="og:title" content="Home TV — Live-TV für den Fire TV | TheCraftedTech">
+<meta property="og:description" content="Home TV spielt Live-Fernsehen per SAT&gt;IP direkt von der FRITZ!Box Cable auf dem Amazon Fire TV — ohne Server, ohne Transcoding. Open Source (MIT).">
+<meta property="og:url" content="https://thecraftedtech.github.io/projekte/hometv.html">
+<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/og/og-hometv.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Home TV — Live-TV-App für den Fire TV mit Senderliste">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Home TV — Live-TV für den Fire TV | TheCraftedTech">
+<meta name="twitter:description" content="Home TV spielt Live-Fernsehen per SAT&gt;IP direkt von der FRITZ!Box Cable auf dem Amazon Fire TV — ohne Server, ohne Transcoding. Open Source (MIT).">
+<meta name="twitter:image" content="https://thecraftedtech.github.io/assets/img/og/og-hometv.jpg">
+<meta name="twitter:image:alt" content="Home TV — Live-TV-App für den Fire TV mit Senderliste">
+<link rel="icon" type="image/png" sizes="192x192" href="../assets/img/logo-192.png">
 <link rel="apple-touch-icon" href="../assets/img/logo-192.png">
+<link rel="preload" href="../assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://thecraftedtech.github.io/projekte/hometv.html#app","name":"Home TV","url":"https://thecraftedtech.github.io/projekte/hometv.html","description":"Native Fire-TV-App, die Live-Fernsehen per SAT>IP direkt von einer FRITZ!Box Cable abspielt.","applicationCategory":"MultimediaApplication","operatingSystem":"Android, Fire OS","inLanguage":"de","license":"https://opensource.org/licenses/MIT","downloadUrl":"https://github.com/TheCraftedTech/HomeTV/releases","codeRepository":"https://github.com/TheCraftedTech/HomeTV","image":"https://thecraftedtech.github.io/assets/img/og/og-hometv.jpg","author":{"@id":"https://thecraftedtech.github.io/#person"},"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://thecraftedtech.github.io/"},{"@type":"ListItem","position":2,"name":"Projekte","item":"https://thecraftedtech.github.io/projekte/"},{"@type":"ListItem","position":3,"name":"Home TV","item":"https://thecraftedtech.github.io/projekte/hometv.html"}]}]}</script>
 </head>
-<body class="tv">
+<body class="tv" data-share-image="../assets/img/og/og-hometv.jpg">
 
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
@@ -27,10 +43,8 @@
       <img src="../assets/img/logo-96.webp" alt="" width="36" height="36">
       TheCraftedTech
     </a>
-    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
-      <svg class="icon"><use href="#i-menu"/></svg>
-    </button>
-    <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
+    <div class="nav-right">
+      <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
       <a href="../index.html">Start</a>
       <a href="index.html" aria-current="page">Projekte</a>
       <a href="../index.html#arbeitsweise">Arbeitsweise</a>
@@ -38,6 +52,11 @@
         <svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> GitHub
       </a>
     </nav>
+      <button class="icon-btn" type="button" data-share-open aria-label="Seite teilen" title="Seite teilen"><svg class="icon"><use href="#i-share"/></svg></button>
+      <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    </div>
   </div>
 </header>
 
@@ -59,6 +78,7 @@
         <a class="btn btn-blue" href="https://github.com/TheCraftedTech/HomeTV#download-und-installation" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> APK laden</a>
         <a class="btn" href="https://github.com/TheCraftedTech/HomeTV" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Quellcode &amp; Doku</a>
         <a class="btn" href="https://github.com/TheCraftedTech/HomeTV/releases" target="_blank" rel="noopener"><svg class="icon"><use href="#i-list"/></svg> Releases</a>
+        <button class="btn" type="button" data-share-open><svg class="icon"><use href="#i-share"/></svg> Teilen</button>
       </div>
     </section>
 

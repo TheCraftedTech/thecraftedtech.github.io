@@ -1,0 +1,142 @@
+<!doctype html>
+<!--
+  Vorlage für die Social-Share-Bilder (1200x630).
+  Aufruf: og.html?v=home | projekte | opencue | hometv
+  Erzeugt werden die JPGs mit:  python tools/og/make_og.py
+-->
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<title>OG-Vorlage</title>
+<link rel="stylesheet" href="../../assets/css/site.css">
+<style>
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #07080b; scroll-behavior: auto; }
+  body { position: relative; font-family: var(--font); }
+  .canvas { position: relative; width: 1200px; height: 630px; overflow: hidden; background: #07080b; }
+  .canvas::before { content: ""; position: absolute; inset: 0;
+    background:
+      radial-gradient(620px 420px at 6% -8%, rgba(255,165,31,.30), transparent 70%),
+      radial-gradient(640px 460px at 100% 8%, rgba(59,130,255,.28), transparent 70%),
+      radial-gradient(520px 320px at 60% 118%, rgba(255,59,47,.16), transparent 70%); }
+  .canvas::after { content: ""; position: absolute; inset: 0; opacity: .55;
+    background-image: linear-gradient(#1e222b 1px, transparent 1px), linear-gradient(90deg, #1e222b 1px, transparent 1px);
+    background-size: 64px 64px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 20%, transparent 80%); mask-image: radial-gradient(ellipse 80% 70% at 30% 20%, #000 20%, transparent 80%); }
+
+  .left { position: absolute; z-index: 2; left: 72px; top: 64px; bottom: 60px; width: 540px; display: flex; flex-direction: column; }
+  .brand-row { display: flex; align-items: center; gap: 16px; font-weight: 700; font-size: 28px; letter-spacing: -.005em; }
+  .brand-row img { width: 56px; height: 56px; border-radius: 15px; }
+  .mid { margin-top: auto; margin-bottom: auto; }
+  .label { font-size: 20px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin: 0 0 14px; }
+  .title { font-size: 104px; line-height: 1.02; font-weight: 800; letter-spacing: -.02em; margin: 0 0 20px; }
+  .title.small { font-size: 96px; }
+  .sub { font-size: 31px; line-height: 1.35; color: #b6bcc8; margin: 0; max-width: 500px; font-weight: 500; }
+  .pills { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 26px; }
+  .pill { font-family: var(--font-mono); font-size: 20px; padding: 7px 16px; border-radius: 999px; border: 1px solid #2a303c; color: #aeb5c1; background: rgba(13,15,20,.7); }
+  .pill.o { color: var(--orange); border-color: rgba(255,165,31,.45); background: rgba(255,165,31,.12); }
+  .pill.b { color: #7fb0ff; border-color: rgba(59,130,255,.5); background: rgba(59,130,255,.14); }
+  .domain { font-family: var(--font-mono); font-size: 22px; color: #6b7280; }
+
+  .vis { position: absolute; z-index: 1; display: none; }
+  body[data-v="home"] .v-home, body[data-v="projekte"] .v-projekte, body[data-v="opencue"] .v-opencue, body[data-v="hometv"] .v-hometv { display: block; }
+  .only { display: none; }
+  body[data-v="home"] .only-home, body[data-v="projekte"] .only-projekte, body[data-v="opencue"] .only-opencue, body[data-v="hometv"] .only-hometv { display: block; }
+  .only.flex { display: none; }
+  body[data-v="home"] .only-home.flex, body[data-v="projekte"] .only-projekte.flex, body[data-v="opencue"] .only-opencue.flex, body[data-v="hometv"] .only-hometv.flex { display: flex; }
+
+  /* home: big logo */
+  .v-home { right: 52px; top: 100px; width: 430px; height: 430px; }
+  .v-home::before { content: ""; position: absolute; inset: -60px; border-radius: 50%; background: conic-gradient(from 160deg, rgba(255,165,31,.55), rgba(59,130,255,.55), rgba(255,59,47,.35), rgba(255,165,31,.55)); filter: blur(70px); opacity: .75; }
+  .v-home img { position: relative; width: 100%; height: 100%; border-radius: 64px; border: 2px solid rgba(255,255,255,.14); box-shadow: 0 40px 100px rgba(0,0,0,.6); }
+
+  /* OpenCue / projekte: screenshot window */
+  .win { position: absolute; border-radius: 18px; border: 1px solid #2a303c; background: #0b0c10; overflow: hidden; box-shadow: 0 50px 110px rgba(0,0,0,.7), 0 0 0 1px rgba(255,165,31,.1), 0 0 120px rgba(255,165,31,.18); }
+  .win .bar { display: flex; gap: 9px; padding: 14px 18px; background: #0f1116; border-bottom: 1px solid #1e222b; }
+  .win .bar i { width: 13px; height: 13px; border-radius: 50%; background: #2b303a; }
+  .win img { display: block; width: 100%; height: auto; }
+  .v-opencue { right: -170px; top: 120px; width: 700px; transform: rotate(-5deg); transform-origin: 30% 50%; }
+  .v-opencue .win { position: relative; }
+
+  /* Home TV */
+  .v-hometv { right: 44px; top: 150px; width: 520px; }
+  .v-hometv .tv-screen { border-width: 14px; border-radius: 22px; box-shadow: 0 50px 110px rgba(0,0,0,.7), 0 0 140px rgba(59,130,255,.38); }
+  .v-hometv .tv-row { font-size: 17px; padding: 6px 10px; }
+  .v-hometv .tv-stand { height: 12px; } .v-hometv .tv-base { height: 7px; }
+
+  /* projekte: two cards */
+  .v-projekte { right: 0; top: 0; width: 600px; height: 630px; }
+  .v-projekte .win { width: 520px; right: -90px; top: 70px; transform: rotate(-5deg); }
+  .v-projekte .tvw { position: absolute; width: 400px; right: 150px; top: 330px; transform: rotate(3deg); }
+  .v-projekte .tvw .tv-screen { border-width: 10px; border-radius: 16px; box-shadow: 0 40px 90px rgba(0,0,0,.75), 0 0 110px rgba(59,130,255,.4); }
+  .v-projekte .tvw .tv-row { font-size: 13px; padding: 4px 7px; }
+  .v-projekte .tvw .tv-stand, .v-projekte .tvw .tv-base { display: none; }
+
+  .bar-accent { position: absolute; left: 0; right: 0; bottom: 0; height: 8px; z-index: 3; background: linear-gradient(90deg, var(--orange), #ff6a4d 50%, var(--blue)); }
+</style>
+</head>
+<body data-v="home">
+<div class="canvas">
+
+  <div class="left">
+    <div class="brand-row"><img src="../../assets/img/logo-512.png" alt=""><span>TheCraftedTech</span></div>
+
+    <div class="mid">
+      <!-- home -->
+      <div class="only only-home">
+        <h1 class="title" style="font-size:78px;letter-spacing:-.015em"><span class="grad">TheCraftedTech</span></h1>
+        <p class="sub">Eigene Tools &amp; Software — offen auf GitHub</p>
+      </div>
+      <!-- projekte -->
+      <div class="only only-projekte">
+        <p class="label">Übersicht</p>
+        <h1 class="title">Projekte</h1>
+        <p class="sub">OpenCue, Home TV und mehr — alles Open Source</p>
+      </div>
+      <!-- opencue -->
+      <div class="only only-opencue">
+        <p class="label">Projekt</p>
+        <h1 class="title">OpenCue</h1>
+        <p class="sub">Open-Source-Lichtstellpult für DMX unter Windows</p>
+      </div>
+      <!-- hometv -->
+      <div class="only only-hometv">
+        <p class="label" style="color:#7fb0ff">Projekt</p>
+        <h1 class="title">Home&nbsp;TV</h1>
+        <p class="sub">Live-TV auf dem Fire TV — direkt von der FRITZ!Box</p>
+      </div>
+    </div>
+
+    <div class="only only-home flex pills" style="margin-bottom:22px"><span class="pill o">Python</span><span class="pill">JavaScript</span><span class="pill">Java</span><span class="pill">Arduino</span><span class="pill b">Windows</span></div>
+    <div class="only only-projekte flex pills" style="margin-bottom:22px"><span class="pill o">OpenCue</span><span class="pill b">Home TV</span><span class="pill">GitHub</span></div>
+    <div class="only only-opencue flex pills" style="margin-bottom:22px"><span class="pill o">Windows 10 / 11</span><span class="pill">3D-Simulation</span><span class="pill">GPL-3.0</span></div>
+    <div class="only only-hometv flex pills" style="margin-bottom:22px"><span class="pill b">Fire TV</span><span class="pill">SAT&gt;IP</span><span class="pill">MIT</span></div>
+    <div class="domain">thecraftedtech.github.io</div>
+  </div>
+
+  <div class="vis v-home"><img src="../../assets/img/logo-1200.webp" alt=""></div>
+
+  <div class="vis v-opencue"><div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="../../assets/img/opencue-demo.webp" alt=""></div></div>
+
+  <div class="vis v-hometv">
+    <div class="tv-set"><div class="tv-screen">
+      <img src="../../assets/img/hometv-banner.png" alt="">
+      <div class="tv-ui"><div class="tv-row"><b>1</b> Sender 1</div><div class="tv-row on"><svg class="icon fill" viewBox="0 0 24 24"><path d="m12 2 3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2Z"/></svg><b>2</b> Sender 2</div><div class="tv-row"><b>3</b> Sender 3</div><div class="tv-row"><b>4</b> Sender 4</div></div>
+    </div><div class="tv-stand"></div><div class="tv-base"></div></div>
+  </div>
+
+  <div class="vis v-projekte">
+    <div class="win"><div class="bar"><i></i><i></i><i></i></div><img src="../../assets/img/opencue-demo.webp" alt=""></div>
+    <div class="tvw"><div class="tv-set"><div class="tv-screen">
+      <img src="../../assets/img/hometv-banner.png" alt="">
+      <div class="tv-ui"><div class="tv-row"><b>1</b> Sender 1</div><div class="tv-row on"><b>2</b> Sender 2</div><div class="tv-row"><b>3</b> Sender 3</div></div>
+    </div></div></div>
+  </div>
+
+  <div class="bar-accent"></div>
+</div>
+<script>
+  var v = new URLSearchParams(location.search).get('v') || 'home';
+  document.body.setAttribute('data-v', v);
+</script>
+</body>
+</html>
