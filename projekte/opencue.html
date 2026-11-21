@@ -30,7 +30,7 @@
 <link rel="preload" href="../assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="../assets/css/site.css">
 <script>document.documentElement.classList.add('js')</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://thecraftedtech.github.io/projekte/opencue.html#app","name":"OpenCue","url":"https://thecraftedtech.github.io/projekte/opencue.html","description":"Open-Source-Lichtstellpult für DMX unter Windows mit GDTF-Fixtures, Cues, Effekten, 3D-Simulation und Fernsteuerung per Tablet.","applicationCategory":"MultimediaApplication","operatingSystem":"Windows 10, Windows 11","inLanguage":["de","en"],"license":"https://www.gnu.org/licenses/gpl-3.0.html","downloadUrl":"https://github.com/TheCraftedTech/opencue/releases","codeRepository":"https://github.com/TheCraftedTech/opencue","image":"https://thecraftedtech.github.io/assets/img/og/og-opencue.jpg","author":{"@id":"https://thecraftedtech.github.io/#person"},"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://thecraftedtech.github.io/"},{"@type":"ListItem","position":2,"name":"Projekte","item":"https://thecraftedtech.github.io/projekte/"},{"@type":"ListItem","position":3,"name":"OpenCue","item":"https://thecraftedtech.github.io/projekte/opencue.html"}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"SoftwareApplication","@id":"https://thecraftedtech.github.io/projekte/opencue.html#app","name":"OpenCue","url":"https://thecraftedtech.github.io/projekte/opencue.html","description":"Open-Source-Lichtstellpult für DMX unter Windows mit GDTF-Fixtures, Cues, Effekten, 3D-Simulation und Fernsteuerung per Tablet.","applicationCategory":"MultimediaApplication","operatingSystem":"Windows 10, Windows 11","inLanguage":["de","en"],"license":"https://www.gnu.org/licenses/gpl-3.0.html","downloadUrl":"https://thecraftedtech.github.io/opencue/download/","codeRepository":"https://github.com/TheCraftedTech/opencue","image":"https://thecraftedtech.github.io/assets/img/og/og-opencue.jpg","author":{"@id":"https://thecraftedtech.github.io/#person"},"offers":{"@type":"Offer","price":"0","priceCurrency":"EUR"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Start","item":"https://thecraftedtech.github.io/"},{"@type":"ListItem","position":2,"name":"Projekte","item":"https://thecraftedtech.github.io/projekte/"},{"@type":"ListItem","position":3,"name":"OpenCue","item":"https://thecraftedtech.github.io/projekte/opencue.html"}]}]}</script>
 </head>
 <body class="oc" data-share-image="../assets/img/og/og-opencue.jpg">
 
@@ -75,8 +75,8 @@
       <p class="tagline">Open-Source-Lichtstellpult für DMX — inspiriert von dot2 onPC, mit erweiterten Funktionen.</p>
       <p class="lede">Aus dem Windows-PC wird ein komplettes Lichtpult: Fixtures patchen, Cues und Effekte programmieren, das Ergebnis live in 3D sehen und die Show per Tablet steuern. Läuft offline, ohne Account und ohne Lizenzschlüssel.</p>
       <div class="actions">
-        <a class="btn btn-orange" href="https://github.com/TheCraftedTech/opencue/releases" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> Download</a>
-        <a class="btn" href="https://thecraftedtech.github.io/opencue/@demo/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-play"/></svg> Live-Demo</a>
+        <a class="btn btn-orange" href="https://thecraftedtech.github.io/opencue/download/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> Download</a>
+        <a class="btn" href="https://thecraftedtech.github.io/opencue/demo/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-play"/></svg> Live-Demo</a>
         <a class="btn" href="https://thecraftedtech.github.io/opencue/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-globe"/></svg> Projektseite &amp; Doku</a>
         <a class="btn" href="https://github.com/TheCraftedTech/opencue" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Quellcode</a>
         <button class="btn" type="button" data-share-open><svg class="icon"><use href="#i-share"/></svg> Teilen</button>
@@ -93,7 +93,7 @@
       <dl class="facts">
         <div class="fact"><dt>Plattform</dt><dd>Windows 10 / 11, 64-bit</dd></div>
         <div class="fact"><dt>DMX-Ausgabe</dt><dd>Art-Net, sACN oder USB-DMX</dd></div>
-        <div class="fact"><dt>Fixtures</dt><dd>GDTF-Bibliothek</dd></div>
+        <div class="fact"><dt>Fixtures</dt><dd>GDTF-Import (Dateien separat, z. B. GDTF Share)</dd></div>
         <div class="fact"><dt>Oberfläche</dt><dd>Deutsch &amp; Englisch</dd></div>
         <div class="fact"><dt>Lizenz</dt><dd>GPL-3.0 oder neuer</dd></div>
         <div class="fact"><dt>Konto nötig?</dt><dd>Nein — läuft komplett offline</dd></div>
@@ -115,10 +115,14 @@
     <section class="sub-block reveal">
       <h2>Installation</h2>
       <ol class="steps">
-        <li><div><b>Setup herunterladen</b><span>Auf der <a href="https://github.com/TheCraftedTech/opencue/releases" target="_blank" rel="noopener">Releases-Seite</a> die Datei <code>OpenCue-Setup-v&lt;Version&gt;.exe</code> laden.</span></div></li>
+        <li><div><b>Setup herunterladen</b><span>Auf der <a href="https://thecraftedtech.github.io/opencue/download/" target="_blank" rel="noopener">Download-Seite</a> die aktuelle Version laden — oder direkt über die <a href="https://github.com/TheCraftedTech/opencue/releases" target="_blank" rel="noopener">GitHub-Releases</a> (Datei <code>OpenCue-Setup-v&lt;Version&gt;.exe</code>).</span></div></li>
         <li><div><b>Setup ausführen</b><span>Sprache, Programmordner, Datenordner und Verknüpfungen auswählen. Fehlt die Edge-WebView2-Runtime, installiert das Setup sie mit (einmalig Internet nötig).</span></div></li>
         <li><div><b>Loslegen</b><span>Beim ersten Start werden eine Demo-Show, ein Beispiel-Layout und Effekt-Skripte angelegt. Neue Versionen laufen über dasselbe Setup — OpenCue meldet, wenn es ein Update gibt.</span></div></li>
       </ol>
+      <div class="note" style="margin-top:16px">
+        <svg class="icon"><use href="#i-info"/></svg>
+        <div><b>Windows warnt?</b> Der Installer ist noch nicht code-signiert (ein Zertifikat kostet Geld, OpenCue ist ein freies Projekt). Bei „Windows hat den PC geschützt“ auf <b>Weitere Informationen → Trotzdem ausführen</b> klicken. Details stehen auf der <a href="https://thecraftedtech.github.io/opencue/download/" target="_blank" rel="noopener">Download-Seite</a>.</div>
+      </div>
     </section>
 
     <div class="pager">
