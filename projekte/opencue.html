@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OpenCue — TheCraftedTech</title>
+<meta name="description" content="OpenCue ist ein Open-Source-Lichtstellpult für DMX unter Windows: 3D-Simulation, Cues, Effekte und Tablet-Fernsteuerung. Läuft offline.">
+<meta name="theme-color" content="#07080b">
+<meta property="og:title" content="OpenCue — Open-Source-Lichtstellpult für Windows">
+<meta property="og:description" content="DMX-Lichtsteuerung mit 3D-Simulation, Cues, Effekten und Fernsteuerung per Tablet.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/opencue-og.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="../assets/img/logo-192.png">
+<link rel="apple-touch-icon" href="../assets/img/logo-192.png">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="oc">
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="TheCraftedTech — Startseite">
+      <img src="../assets/img/logo-96.webp" alt="" width="36" height="36">
+      TheCraftedTech
+    </a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
+      <a href="../index.html">Start</a>
+      <a href="index.html" aria-current="page">Projekte</a>
+      <a href="../index.html#arbeitsweise">Arbeitsweise</a>
+      <a class="btn-nav" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">
+        <svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <section class="proj-hero oc">
+      <nav class="crumbs" aria-label="Brotkrümel">
+        <a href="../index.html">Start</a><svg class="icon"><use href="#i-chev"/></svg><a href="index.html">Projekte</a><svg class="icon"><use href="#i-chev"/></svg><span>OpenCue</span>
+      </nav>
+      <div class="p-head">
+        <img class="p-logo" src="../assets/img/opencue-icon.png" alt="OpenCue Logo" width="64" height="64">
+        <div class="badges"><span class="badge accent-o">Windows 10 / 11</span><span class="badge">GPL-3.0</span></div>
+      </div>
+      <h1>OpenCue</h1>
+      <p class="tagline">Open-Source-Lichtstellpult für DMX — inspiriert von dot2 onPC, mit erweiterten Funktionen.</p>
+      <p class="lede">Aus dem Windows-PC wird ein komplettes Lichtpult: Fixtures patchen, Cues und Effekte programmieren, das Ergebnis live in 3D sehen und die Show per Tablet steuern. Läuft offline, ohne Account und ohne Lizenzschlüssel.</p>
+      <div class="actions">
+        <a class="btn btn-orange" href="https://github.com/TheCraftedTech/opencue/releases" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> Download</a>
+        <a class="btn" href="https://thecraftedtech.github.io/opencue/@demo/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-play"/></svg> Live-Demo</a>
+        <a class="btn" href="https://thecraftedtech.github.io/opencue/" target="_blank" rel="noopener"><svg class="icon"><use href="#i-globe"/></svg> Projektseite &amp; Doku</a>
+        <a class="btn" href="https://github.com/TheCraftedTech/opencue" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Quellcode</a>
+      </div>
+    </section>
+
+    <figure class="window reveal">
+      <div class="window-bar"><i></i><i></i><i></i><span>OpenCue — Demo-Show</span></div>
+      <img src="../assets/img/opencue-demo.webp" alt="OpenCue-Oberfläche mit 3D-Bühnensimulation, Cue-Liste, Executor und Fixture-Steuerung" width="1436" height="919">
+    </figure>
+
+    <section class="sub-block reveal">
+      <h2>Auf einen Blick</h2>
+      <dl class="facts">
+        <div class="fact"><dt>Plattform</dt><dd>Windows 10 / 11, 64-bit</dd></div>
+        <div class="fact"><dt>DMX-Ausgabe</dt><dd>Art-Net, sACN oder USB-DMX</dd></div>
+        <div class="fact"><dt>Fixtures</dt><dd>GDTF-Bibliothek</dd></div>
+        <div class="fact"><dt>Oberfläche</dt><dd>Deutsch &amp; Englisch</dd></div>
+        <div class="fact"><dt>Lizenz</dt><dd>GPL-3.0 oder neuer</dd></div>
+        <div class="fact"><dt>Konto nötig?</dt><dd>Nein — läuft komplett offline</dd></div>
+      </dl>
+    </section>
+
+    <section class="sub-block reveal">
+      <h2>Highlights</h2>
+      <ul class="features">
+        <li><span class="f-icon"><svg class="icon"><use href="#i-lib"/></svg></span><div><b>3D-Simulation</b><span>Bühne bauen, Fixtures mit echten GDTF-Modellen und Live-Licht sehen — Moving Heads lassen sich auf einen Punkt ausrichten.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-sliders"/></svg></span><div><b>Cues &amp; Executors</b><span>Cue-Listen mit Fades, Follow und Timecode-Triggern.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-zap"/></svg></span><div><b>Effekt-Engine</b><span>Eigene Skriptsprache, Effect Studio und eine Befehlszeile mit Autovervollständigung.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-tablet"/></svg></span><div><b>Fernsteuerung</b><span>Tablet und Handy im Heimnetz, per QR-Code und Passwort — standardmäßig aus, jederzeit abschaltbar.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-clock"/></svg></span><div><b>Timecode &amp; Medien</b><span>Globaler Timecode, Video-/Audio-Player und Kamera-Panels.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-panels"/></svg></span><div><b>Dein Layout</b><span>Freie Panel-Layouts, Farbthemen und Show-Export/-Import als ZIP.</span></div></li>
+      </ul>
+    </section>
+
+    <section class="sub-block reveal">
+      <h2>Installation</h2>
+      <ol class="steps">
+        <li><div><b>Setup herunterladen</b><span>Auf der <a href="https://github.com/TheCraftedTech/opencue/releases" target="_blank" rel="noopener">Releases-Seite</a> die Datei <code>OpenCue-Setup-v&lt;Version&gt;.exe</code> laden.</span></div></li>
+        <li><div><b>Setup ausführen</b><span>Sprache, Programmordner, Datenordner und Verknüpfungen auswählen. Fehlt die Edge-WebView2-Runtime, installiert das Setup sie mit (einmalig Internet nötig).</span></div></li>
+        <li><div><b>Loslegen</b><span>Beim ersten Start werden eine Demo-Show, ein Beispiel-Layout und Effekt-Skripte angelegt. Neue Versionen laufen über dasselbe Setup — OpenCue meldet, wenn es ein Update gibt.</span></div></li>
+      </ol>
+    </section>
+
+    <div class="pager">
+      <a href="index.html"><svg class="icon"><use href="#i-left"/></svg><span><small>Zurück</small>Alle Projekte</span></a>
+      <a class="next" href="hometv.html"><span><small>Nächstes Projekt</small>Home TV</span><svg class="icon"><use href="#i-right"/></svg></a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="../index.html"><img src="../assets/img/logo-96.webp" alt="" width="36" height="36"> TheCraftedTech</a>
+      <p>Eigene Tools und Software, offen auf GitHub.</p>
+      <div class="social">
+        <a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener" aria-label="GitHub-Profil"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Seite</h4>
+      <ul>
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="index.html">Projekte</a></li>
+        <li><a href="../index.html#arbeitsweise">Arbeitsweise</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>GitHub</h4>
+      <ul>
+        <li><a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">Profil</a></li>
+        <li><a href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">Alle Repositories</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>© 2026 TheCraftedTech · Gehostet auf GitHub Pages</span>
+      <a href="#top">Nach oben ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

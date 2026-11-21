@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projekte — TheCraftedTech</title>
+<meta name="description" content="Alle Open-Source-Projekte von TheCraftedTech im Überblick: OpenCue, Home TV und mehr.">
+<meta name="theme-color" content="#07080b">
+<meta property="og:title" content="Projekte — TheCraftedTech">
+<meta property="og:description" content="Alle Open-Source-Projekte von TheCraftedTech im Überblick.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="../assets/img/logo-192.png">
+<link rel="apple-touch-icon" href="../assets/img/logo-192.png">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="TheCraftedTech — Startseite">
+      <img src="../assets/img/logo-96.webp" alt="" width="36" height="36">
+      TheCraftedTech
+    </a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
+      <a href="../index.html">Start</a>
+      <a href="index.html" aria-current="page">Projekte</a>
+      <a href="../index.html#arbeitsweise">Arbeitsweise</a>
+      <a class="btn-nav" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">
+        <svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+    <section class="page-hero">
+      <nav class="crumbs" aria-label="Brotkrümel">
+        <a href="../index.html">Start</a><svg class="icon"><use href="#i-chev"/></svg><span>Projekte</span>
+      </nav>
+      <h1>Projekte</h1>
+      <p class="lede">Eigene Tools und Software, alle offen auf GitHub. Hier findest du jeweils einen Überblick — mit Download, Quellcode und den wichtigsten Infos.</p>
+    </section>
+
+    <section class="block" style="padding-top:0">
+      <div class="p-grid">
+
+        <a class="p-card oc reveal" href="opencue.html">
+          <div class="p-media"><img src="../assets/img/opencue-demo.webp" alt="OpenCue mit 3D-Bühnensimulation und Cue-Liste" width="1436" height="919" loading="lazy"></div>
+          <div class="p-body">
+            <div class="p-head">
+              <img class="p-logo" src="../assets/img/opencue-icon.png" alt="" width="46" height="46">
+              <div>
+                <h3>OpenCue</h3>
+                <div class="badges"><span class="badge accent-o">Windows 10 / 11</span><span class="badge">GPL-3.0</span></div>
+              </div>
+            </div>
+            <p class="p-tagline">Open-Source-Lichtstellpult für DMX, inspiriert von dot2 onPC.</p>
+            <ul class="p-points">
+              <li><svg class="icon"><use href="#i-check"/></svg>Live-3D-Bühnensimulation</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Cues, Executors und Effekt-Engine</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Steuerung per Tablet, läuft offline</li>
+            </ul>
+            <div class="p-more"><span>Details ansehen</span><span class="arrow"><svg class="icon"><use href="#i-right"/></svg></span></div>
+          </div>
+        </a>
+
+        <a class="p-card tv reveal" href="hometv.html">
+          <div class="p-media tvbg">
+            <div class="tv-set" aria-hidden="true">
+              <div class="tv-screen">
+                <img src="../assets/img/hometv-banner.png" alt="" width="1280" height="720" loading="lazy">
+                <div class="tv-ui">
+                  <div class="tv-row"><b>1</b> Sender 1</div>
+                  <div class="tv-row on"><svg class="icon fill"><use href="#i-star"/></svg><b>2</b> Sender 2</div>
+                  <div class="tv-row"><b>3</b> Sender 3</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="p-body">
+            <div class="p-head">
+              <img class="p-logo" src="../assets/img/hometv-icon.png" alt="" width="46" height="46">
+              <div>
+                <h3>Home TV</h3>
+                <div class="badges"><span class="badge accent-b">Android / Fire TV</span><span class="badge">MIT</span></div>
+              </div>
+            </div>
+            <p class="p-tagline">Live-TV auf dem Fire TV, direkt von der FRITZ!Box.</p>
+            <ul class="p-points">
+              <li><svg class="icon"><use href="#i-check"/></svg>Kein Streaming-Server, kein Transcoding</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Programmübersicht (EPG) und Favoriten</li>
+              <li><svg class="icon"><use href="#i-check"/></svg>Komplett mit der Fernbedienung bedienbar</li>
+            </ul>
+            <div class="p-more"><span>Details ansehen</span><span class="arrow"><svg class="icon"><use href="#i-right"/></svg></span></div>
+          </div>
+        </a>
+
+        <div class="p-soon reveal">
+          <div class="s-icon"><svg class="icon"><use href="#i-plus"/></svg></div>
+          <div class="s-text"><b>Weitere Projekte folgen</b><span>Neue Veröffentlichungen erscheinen zuerst auf GitHub.</span></div>
+          <a class="text-link" href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">Alle Repositories <svg class="icon"><use href="#i-arrow"/></svg></a>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="../index.html"><img src="../assets/img/logo-96.webp" alt="" width="36" height="36"> TheCraftedTech</a>
+      <p>Eigene Tools und Software, offen auf GitHub.</p>
+      <div class="social">
+        <a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener" aria-label="GitHub-Profil"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Seite</h4>
+      <ul>
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="index.html">Projekte</a></li>
+        <li><a href="../index.html#arbeitsweise">Arbeitsweise</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>GitHub</h4>
+      <ul>
+        <li><a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">Profil</a></li>
+        <li><a href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">Alle Repositories</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>© 2026 TheCraftedTech · Gehostet auf GitHub Pages</span>
+      <a href="#top">Nach oben ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

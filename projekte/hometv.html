@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Home TV — TheCraftedTech</title>
+<meta name="description" content="Home TV ist eine native Fire-TV-App, die Live-Fernsehen per SAT>IP direkt von der FRITZ!Box Cable abspielt — ohne Server und ohne Transcoding.">
+<meta name="theme-color" content="#07080b">
+<meta property="og:title" content="Home TV — Live-TV für den Fire TV">
+<meta property="og:description" content="Live-Fernsehen direkt von der FRITZ!Box — ohne Server dazwischen.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://thecraftedtech.github.io/assets/img/logo-512.png">
+<meta name="twitter:card" content="summary">
+<link rel="icon" type="image/png" href="../assets/img/logo-192.png">
+<link rel="apple-touch-icon" href="../assets/img/logo-192.png">
+<link rel="stylesheet" href="../assets/css/site.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body class="tv">
+
+<div class="bg-glow"></div>
+<div class="bg-grid"></div>
+
+<header class="nav" id="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="../index.html" aria-label="TheCraftedTech — Startseite">
+      <img src="../assets/img/logo-96.webp" alt="" width="36" height="36">
+      TheCraftedTech
+    </a>
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+    <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
+      <a href="../index.html">Start</a>
+      <a href="index.html" aria-current="page">Projekte</a>
+      <a href="../index.html#arbeitsweise">Arbeitsweise</a>
+      <a class="btn-nav" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">
+        <svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> GitHub
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap">
+
+    <section class="proj-hero tv">
+      <nav class="crumbs" aria-label="Brotkrümel">
+        <a href="../index.html">Start</a><svg class="icon"><use href="#i-chev"/></svg><a href="index.html">Projekte</a><svg class="icon"><use href="#i-chev"/></svg><span>Home TV</span>
+      </nav>
+      <div class="p-head">
+        <img class="p-logo" src="../assets/img/hometv-icon.png" alt="Home TV Logo" width="64" height="64">
+        <div class="badges"><span class="badge accent-b">Android / Fire TV</span><span class="badge">Kotlin</span><span class="badge">MIT</span></div>
+      </div>
+      <h1>Home TV</h1>
+      <p class="tagline">Live-Fernsehen auf dem Amazon Fire TV — direkt von der FRITZ!Box.</p>
+      <p class="lede">Eine native Android-/Fire-TV-App, die per SAT&gt;IP die Sender einer FRITZ!Box Cable abspielt. Kein Streaming-Server dazwischen, kein Transcoding — Bild und Ton kommen unverändert von der Box.</p>
+      <div class="actions">
+        <a class="btn btn-blue" href="https://github.com/TheCraftedTech/HomeTV#download-und-installation" target="_blank" rel="noopener"><svg class="icon"><use href="#i-download"/></svg> APK laden</a>
+        <a class="btn" href="https://github.com/TheCraftedTech/HomeTV" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Quellcode &amp; Doku</a>
+        <a class="btn" href="https://github.com/TheCraftedTech/HomeTV/releases" target="_blank" rel="noopener"><svg class="icon"><use href="#i-list"/></svg> Releases</a>
+      </div>
+    </section>
+
+    <div class="showcase reveal" style="padding-top:8px" aria-hidden="true">
+      <div class="tv-set">
+        <div class="tv-screen">
+          <img src="../assets/img/hometv-banner.png" alt="" width="1280" height="720">
+          <div class="tv-ui">
+            <div class="tv-row"><b>1</b> Sender 1</div>
+            <div class="tv-row on"><svg class="icon fill"><use href="#i-star"/></svg><b>2</b> Sender 2</div>
+            <div class="tv-row"><b>3</b> Sender 3</div>
+            <div class="tv-row"><svg class="icon fill"><use href="#i-star"/></svg><b>4</b> Sender 4</div>
+          </div>
+        </div>
+        <div class="tv-stand"></div>
+        <div class="tv-base"></div>
+      </div>
+    </div>
+
+    <section class="sub-block reveal">
+      <h2>Auf einen Blick</h2>
+      <dl class="facts">
+        <div class="fact"><dt>Gerät</dt><dd>Amazon Fire TV (Fire OS 5 / Android 5.1 oder neuer)</dd></div>
+        <div class="fact"><dt>Quelle</dt><dd>FRITZ!Box mit DVB-C-Tuner (SAT&gt;IP)</dd></div>
+        <div class="fact"><dt>Technik</dt><dd>Eigener SAT&gt;IP-Client (RTSP + RTP/UDP) und LibVLC</dd></div>
+        <div class="fact"><dt>Bedienung</dt><dd>Komplett mit der Fernbedienung</dd></div>
+        <div class="fact"><dt>Lizenz</dt><dd>MIT</dd></div>
+        <div class="fact"><dt>Server nötig?</dt><dd>Nein — direkt von der Box</dd></div>
+      </dl>
+    </section>
+
+    <section class="sub-block reveal">
+      <div class="note">
+        <svg class="icon"><use href="#i-info"/></svg>
+        <div><b>Teststatus:</b> Die App läuft im Alltag auf einem <b>Fire TV Stick 4K Max (Fire OS 8)</b> mit einer <b>FRITZ!Box 6660 Cable</b>. Andere Fire-TV-Modelle und andere SAT&gt;IP-Server sind <b>nicht getestet</b>.</div>
+      </div>
+    </section>
+
+    <section class="sub-block reveal">
+      <h2>Highlights</h2>
+      <ul class="features">
+        <li><span class="f-icon"><svg class="icon"><use href="#i-tv"/></svg></span><div><b>Live-TV</b><span>Hardware-Decoder, Ton und Bild synchron. Start mit dem zuletzt gesehenen Sender, Pause und „live neu starten".</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-bolt"/></svg></span><div><b>Schnelles Umschalten</b><span>Nummer, Name und laufende Sendung erscheinen sofort — geladen wird erst nach einer kurzen Pause.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-list"/></svg></span><div><b>Senderliste</b><span>Am rechten Rand mit laufender Sendung, Fortschrittsbalken, Restzeit und Uhr.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-cal"/></svg></span><div><b>Programmübersicht (EPG)</b><span>Vollbild-Raster mit Zeitachse, gespeist aus einer frei einstellbaren XMLTV-URL.</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-star"/></svg></span><div><b>Favoriten</b><span>Per langem OK setzen, eigene Favoriten-Leiste und Filter „nur Favoriten".</span></div></li>
+        <li><span class="f-icon"><svg class="icon"><use href="#i-gear"/></svg></span><div><b>Einstellungen</b><span>Puffer, Audio-Versatz, eigene Box-Adresse oder eigene Senderliste (M3U) und ein optionaler Beenden-Timer.</span></div></li>
+      </ul>
+    </section>
+
+    <section class="sub-block reveal">
+      <h2>Installation</h2>
+      <ol class="steps blue">
+        <li><div><b>APK laden</b><span>Die signierte APK liegt im Repository (Ordner <code>release/</code>) und, sobald angelegt, bei den <a href="https://github.com/TheCraftedTech/HomeTV/releases" target="_blank" rel="noopener">Releases</a>.</span></div></li>
+        <li><div><b>ADB-Debugging am Fire TV aktivieren</b><span>Einstellungen → Mein Fire TV → Info → 7× auf den Gerätenamen tippen, dann in den Entwickleroptionen „ADB-Debugging" einschalten und die IP-Adresse notieren.</span></div></li>
+        <li><div><b>Vom PC installieren</b><span>Mit den Android Platform-Tools:</span>
+<pre class="code">adb connect &lt;FIRE-TV-IP&gt;:5555
+adb -s &lt;FIRE-TV-IP&gt;:5555 install -r HomeTV-&lt;Version&gt;.apk</pre>
+          <span style="margin-top:8px">Danach in den Apps „Home TV" starten. Eine Variante ohne PC (App „Downloader") und alle Details stehen im <a href="https://github.com/TheCraftedTech/HomeTV#download-und-installation" target="_blank" rel="noopener">README</a>.</span></div></li>
+      </ol>
+    </section>
+
+    <div class="pager">
+      <a href="opencue.html"><svg class="icon"><use href="#i-left"/></svg><span><small>Vorheriges Projekt</small>OpenCue</span></a>
+      <a class="next" href="index.html"><span><small>Zurück</small>Alle Projekte</span><svg class="icon"><use href="#i-right"/></svg></a>
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="../index.html"><img src="../assets/img/logo-96.webp" alt="" width="36" height="36"> TheCraftedTech</a>
+      <p>Eigene Tools und Software, offen auf GitHub.</p>
+      <div class="social">
+        <a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener" aria-label="GitHub-Profil"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Seite</h4>
+      <ul>
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="index.html">Projekte</a></li>
+        <li><a href="../index.html#arbeitsweise">Arbeitsweise</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>GitHub</h4>
+      <ul>
+        <li><a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">Profil</a></li>
+        <li><a href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">Alle Repositories</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>© 2026 TheCraftedTech · Gehostet auf GitHub Pages</span>
+      <a href="#top">Nach oben ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
