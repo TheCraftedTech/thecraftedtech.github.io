@@ -3,20 +3,22 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TheCraftedTech — Open-Source-Tools &amp; Software</title>
-<meta name="description" content="TheCraftedTech baut Open-Source-Tools: OpenCue, ein DMX-Lichtstellpult für Windows, und Home TV, Live-Fernsehen für den Fire TV direkt von der FRITZ!Box.">
+<title>TheCraftedTech — Tools &amp; Software</title>
+<meta name="description" content="TheCraftedTech baut eigene Tools und Software und veröffentlicht sie als Open Source — unter anderem OpenCue, ein DMX-Lichtstellpult für Windows, und Home TV für den Fire TV.">
 <meta name="theme-color" content="#07080b">
-<meta property="og:title" content="TheCraftedTech — Open-Source-Tools &amp; Software">
-<meta property="og:description" content="OpenCue (DMX-Lichtstellpult) und Home TV (Live-TV für Fire TV) — selbst gebaut, offen, lokal.">
+<meta property="og:title" content="TheCraftedTech — Tools &amp; Software">
+<meta property="og:description" content="Eigene Tools und Software, offen auf GitHub: OpenCue, Home TV und mehr.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://thecraftedtech.github.io/">
 <meta property="og:image" content="https://thecraftedtech.github.io/assets/img/opencue-og.jpg">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="assets/img/avatar.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Work+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/img/logo.svg">
+<link rel="preload" href="assets/fonts/jakarta.woff2" as="font" type="font/woff2" crossorigin>
 <style>
+  @font-face { font-family: 'Plus Jakarta Sans'; font-weight: 400 800; font-style: normal; font-display: swap; src: url(assets/fonts/jakarta.woff2) format('woff2'); }
+  @font-face { font-family: 'IBM Plex Mono'; font-weight: 400; font-style: normal; font-display: swap; src: url(assets/fonts/plex-mono-400.woff2) format('woff2'); }
+  @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; font-style: normal; font-display: swap; src: url(assets/fonts/plex-mono-500.woff2) format('woff2'); }
+
   :root {
     color-scheme: dark;
     --bg: #07080b;
@@ -33,20 +35,19 @@
     --blue: #3b82ff;
     --blue-soft: rgba(59,130,255,.13);
     --radius: 18px;
-    --font-display: 'Syne', system-ui, sans-serif;
-    --font-body: 'Work Sans', system-ui, sans-serif;
+    --font: 'Plus Jakarta Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+  html { scroll-behavior: smooth; scroll-padding-top: 84px; }
   body {
     margin: 0;
     background: var(--bg);
     color: var(--fg);
-    font-family: var(--font-body);
+    font-family: var(--font);
     font-size: 16px;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
@@ -56,7 +57,7 @@
   .icon { width: 1em; height: 1em; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; flex: none; }
   .icon.fill { fill: currentColor; stroke: none; }
 
-  /* background glow */
+  /* background glow + grid */
   .bg-glow {
     position: fixed; inset: 0; z-index: -1; pointer-events: none;
     background:
@@ -79,15 +80,57 @@
     background: rgba(7,8,11,.72);
     border-bottom: 1px solid var(--line);
   }
-  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-family: var(--font-display); font-weight: 700; font-size: 17px; }
-  .brand img { width: 32px; height: 32px; border-radius: 9px; image-rendering: pixelated; border: 1px solid var(--line-hi); }
-  .nav-links { display: flex; align-items: center; gap: 6px; }
-  .nav-links a { text-decoration: none; color: var(--fg-dim); font-size: 14.5px; padding: 8px 14px; border-radius: 10px; transition: color .15s, background .15s; }
-  .nav-links a:hover { color: var(--fg); background: var(--card); }
-  .nav-links a.btn-nav { color: var(--fg); border: 1px solid var(--line-hi); display: inline-flex; align-items: center; gap: 8px; margin-left: 6px; }
-  .nav-links a.btn-nav:hover { border-color: var(--fg-faint); }
-  @media (max-width: 640px) { .nav-links a:not(.btn-nav) { display: none; } }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 68px; gap: 16px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; font-weight: 700; font-size: 17px; letter-spacing: -.01em; }
+  .brand img { width: 36px; height: 36px; border-radius: 10px; }
+
+  .nav-links { display: flex; align-items: center; gap: 4px; }
+  .nav-links > a, .menu-toggle {
+    font: inherit; font-size: 14.5px; font-weight: 500; text-decoration: none; color: var(--fg-dim);
+    padding: 9px 14px; border-radius: 10px; border: 0; background: none; cursor: pointer;
+    display: inline-flex; align-items: center; gap: 6px; transition: color .15s, background .15s;
+  }
+  .nav-links > a:hover, .menu-toggle:hover, .has-menu:focus-within .menu-toggle { color: var(--fg); background: var(--card); }
+  .nav-links .btn-nav { color: var(--fg); border: 1px solid var(--line-hi); margin-left: 8px; }
+  .nav-links .btn-nav:hover { border-color: var(--fg-faint); }
+  .menu-toggle .icon { font-size: 14px; transition: transform .2s; }
+
+  .has-menu { position: relative; }
+  .menu {
+    position: absolute; top: calc(100% + 8px); left: 0; min-width: 300px; padding: 8px;
+    background: rgba(17,20,26,.97); border: 1px solid var(--line-hi); border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0,0,0,.55);
+    opacity: 0; visibility: hidden; transform: translateY(-6px); transition: opacity .18s, transform .18s, visibility .18s;
+  }
+  .has-menu:hover .menu, .has-menu:focus-within .menu, .has-menu.open .menu { opacity: 1; visibility: visible; transform: none; }
+  .has-menu:hover .menu-toggle .icon, .has-menu.open .menu-toggle .icon { transform: rotate(180deg); }
+  .menu a { display: flex; align-items: center; gap: 14px; padding: 11px 12px; border-radius: 11px; text-decoration: none; transition: background .15s; }
+  .menu a:hover { background: var(--card-hi); }
+  .menu .m-icon { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; font-size: 19px; flex: none; }
+  .menu .m-icon.o { background: var(--orange-soft); color: var(--orange); }
+  .menu .m-icon.b { background: var(--blue-soft); color: #7fb0ff; }
+  .menu .m-icon.g { background: rgba(255,255,255,.06); color: var(--fg); }
+  .menu b { display: block; font-size: 14.5px; line-height: 1.3; }
+  .menu small { display: block; font-size: 12.5px; color: var(--fg-dim); line-height: 1.35; }
+  .menu hr { border: 0; border-top: 1px solid var(--line); margin: 6px 4px; }
+
+  .burger { display: none; width: 42px; height: 42px; border-radius: 11px; border: 1px solid var(--line-hi); background: var(--card); color: var(--fg); cursor: pointer; place-items: center; font-size: 20px; }
+  @media (max-width: 760px) {
+    .burger { display: grid; }
+    .nav-links {
+      position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 2px;
+      padding: 12px 24px 20px; background: rgba(7,8,11,.97); border-bottom: 1px solid var(--line);
+      display: none;
+    }
+    .nav.open .nav-links { display: flex; }
+    .nav-links > a, .menu-toggle { padding: 12px 10px; font-size: 16px; }
+    .nav-links .btn-nav { margin: 8px 0 0; justify-content: center; }
+    .menu-toggle { width: 100%; justify-content: space-between; }
+    .menu { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; background: none; border: 0; padding: 0 0 6px 8px; min-width: 0; display: none; }
+    .has-menu.open .menu { display: block; }
+    .has-menu:hover .menu { display: none; }
+    .has-menu.open:hover .menu { display: block; }
+  }
 
   /* ---------- buttons ---------- */
   .btn {
@@ -107,60 +150,49 @@
   .btn-blue:hover { background: #5a96ff; border-color: #5a96ff; box-shadow: 0 8px 30px rgba(59,130,255,.3); }
 
   /* ---------- hero ---------- */
-  .hero { padding-block: 88px 96px; }
+  .hero { padding-block: 96px 104px; }
   .hero-grid { display: grid; grid-template-columns: 1.25fr .75fr; gap: 56px; align-items: center; }
-  .eyebrow {
-    display: inline-flex; align-items: center; gap: 9px;
-    font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .04em;
-    color: var(--fg-dim); padding: 7px 14px; border: 1px solid var(--line-hi); border-radius: 999px;
-    background: rgba(17,20,26,.7); margin-bottom: 26px;
-  }
-  .eyebrow .dot { width: 7px; height: 7px; border-radius: 50%; background: #3ddc84; box-shadow: 0 0 10px #3ddc84; }
   h1 {
-    font-family: var(--font-display); font-weight: 800;
-    font-size: clamp(2.1rem, 4.6vw, 3.6rem); line-height: 1.08; letter-spacing: -.02em;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5.4vw, 4.2rem); line-height: 1.1; letter-spacing: -.012em;
     margin: 0 0 24px; text-wrap: balance;
   }
   .grad {
-    background: linear-gradient(100deg, var(--orange) 5%, #ff6a4d 45%, var(--blue) 100%);
+    background: linear-gradient(100deg, var(--orange) 5%, #ff6a4d 50%, var(--blue) 105%);
     -webkit-background-clip: text; background-clip: text; color: transparent;
   }
-  .lede { font-size: 19px; color: var(--fg-dim); max-width: 52ch; margin: 0 0 34px; }
-  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 44px; }
-  .stats { display: flex; flex-wrap: wrap; gap: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
-  .stat b { display: block; font-family: var(--font-display); font-size: 28px; line-height: 1.1; }
-  .stat span { font-size: 13.5px; color: var(--fg-dim); }
+  .lede { font-size: 19px; color: var(--fg-dim); max-width: 50ch; margin: 0 0 36px; }
+  .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; }
 
   .profile { position: relative; justify-self: center; width: min(100%, 340px); }
   .profile::before {
     content: ""; position: absolute; inset: -30px; z-index: -1; border-radius: 50%;
     background: conic-gradient(from 160deg, rgba(255,165,31,.35), rgba(59,130,255,.35), rgba(255,165,31,.35));
-    filter: blur(60px); opacity: .7;
+    filter: blur(60px); opacity: .6;
   }
   .profile-card {
     background: linear-gradient(180deg, var(--card-hi), var(--card));
-    border: 1px solid var(--line-hi); border-radius: 26px; padding: 18px; text-align: center;
+    border: 1px solid var(--line-hi); border-radius: 28px; padding: 14px; text-align: center;
     box-shadow: 0 30px 80px rgba(0,0,0,.5);
   }
-  .avatar { width: 100%; aspect-ratio: 1; border-radius: 18px; object-fit: cover; image-rendering: pixelated; border: 1px solid var(--line-hi); }
-  .profile-meta { padding: 18px 6px 6px; }
-  .profile-meta h2 { margin: 0; font-family: var(--font-display); font-size: 22px; }
-  .profile-meta p { margin: 2px 0 14px; color: var(--fg-dim); font-size: 14px; font-family: var(--font-mono); }
+  .logo-big { width: 100%; height: auto; aspect-ratio: 1; border-radius: 20px; }
+  .profile-meta { padding: 16px 6px 8px; }
+  .profile-meta h2 { margin: 0; font-size: 21px; letter-spacing: -.01em; }
+  .profile-meta p { margin: 2px 0 14px; color: var(--fg-dim); font-size: 13.5px; font-family: var(--font-mono); }
   .chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 7px; }
   .chip { font-family: var(--font-mono); font-size: 11.5px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line-hi); color: var(--fg-dim); background: var(--bg-2); }
 
   @media (max-width: 880px) {
     .hero { padding-block: 56px 64px; }
     .hero-grid { grid-template-columns: 1fr; gap: 48px; }
-    .profile { width: min(100%, 280px); }
+    .profile { width: min(100%, 300px); }
   }
 
   /* ---------- sections ---------- */
   section.block { padding-block: 40px 90px; }
   .section-head { margin-bottom: 44px; max-width: 640px; }
-  .kicker { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: .14em; text-transform: uppercase; color: var(--orange); margin: 0 0 14px; display: flex; align-items: center; gap: 10px; }
-  .kicker::before { content: ""; width: 26px; height: 1px; background: currentColor; }
-  h2.title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.7rem, 3.4vw, 2.3rem); line-height: 1.15; letter-spacing: -.02em; margin: 0 0 14px; text-wrap: balance; }
+  .section-head .kicker { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--orange); margin: 0 0 12px; }
+  h2.title { font-weight: 700; font-size: clamp(1.7rem, 3.4vw, 2.4rem); line-height: 1.2; letter-spacing: -.005em; margin: 0 0 12px; text-wrap: balance; }
   .section-head p { margin: 0; color: var(--fg-dim); font-size: 17px; }
 
   /* ---------- project cards ---------- */
@@ -182,12 +214,12 @@
 
   .project-head { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
   .project-logo { width: 56px; height: 56px; border-radius: 14px; border: 1px solid var(--line-hi); flex: none; background: #000; }
-  .project-head h3 { font-family: var(--font-display); font-weight: 800; font-size: 1.7rem; line-height: 1; margin: 0 0 6px; letter-spacing: -.01em; }
+  .project-head h3 { font-weight: 700; font-size: 1.7rem; line-height: 1.1; margin: 0 0 6px; letter-spacing: -.005em; }
   .badges { display: flex; flex-wrap: wrap; gap: 8px; }
   .badge { font-family: var(--font-mono); font-size: 11.5px; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--line-hi); color: var(--fg-dim); }
   .badge.accent-o { color: var(--orange); border-color: rgba(255,165,31,.35); background: var(--orange-soft); }
   .badge.accent-b { color: #7fb0ff; border-color: rgba(59,130,255,.4); background: var(--blue-soft); }
-  .project .tagline { font-size: 20px; font-weight: 500; margin: 0 0 12px; max-width: 60ch; }
+  .project .tagline { font-size: 20px; font-weight: 600; margin: 0 0 12px; max-width: 60ch; letter-spacing: -.01em; }
   .project .desc { color: var(--fg-dim); margin: 0 0 28px; max-width: 64ch; }
 
   .features { list-style: none; padding: 0; margin: 0 0 32px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
@@ -197,20 +229,18 @@
   .oc .f-icon { background: var(--orange-soft); color: var(--orange); }
   .tv .f-icon { background: var(--blue-soft); color: #7fb0ff; }
   .features b { display: block; font-size: 15px; line-height: 1.3; margin-bottom: 2px; }
-  .features div span { font-size: 13.5px; color: var(--fg-dim); line-height: 1.45; display: block; }
+  .features div span { font-size: 13.5px; color: var(--fg-dim); line-height: 1.5; display: block; }
   @media (max-width: 960px) { .features { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 560px) { .features { grid-template-columns: 1fr; } }
 
   .actions { display: flex; flex-wrap: wrap; gap: 12px; }
 
-  /* window frame (OpenCue screenshot) */
-  .window { margin-bottom: 36px; border-radius: 14px; border: 1px solid var(--line-hi); background: #0b0c10; overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,165,31,.06); }
+  .window { margin: 0 0 36px; border-radius: 14px; border: 1px solid var(--line-hi); background: #0b0c10; overflow: hidden; box-shadow: 0 40px 90px rgba(0,0,0,.55), 0 0 0 1px rgba(255,165,31,.06); }
   .window-bar { display: flex; align-items: center; gap: 8px; padding: 11px 16px; border-bottom: 1px solid var(--line); background: #0f1116; }
   .window-bar i { width: 11px; height: 11px; border-radius: 50%; background: #2b303a; }
   .window-bar span { margin-left: 10px; font-family: var(--font-mono); font-size: 12px; color: var(--fg-faint); }
   .window img { width: 100%; height: auto; }
 
-  /* Home TV layout */
   .tv-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 48px; align-items: center; }
   .tv-grid .features { grid-template-columns: 1fr 1fr; }
   @media (max-width: 960px) { .tv-grid { grid-template-columns: 1fr; gap: 32px; } }
@@ -221,7 +251,7 @@
     position: relative; aspect-ratio: 16/9; border-radius: 14px; overflow: hidden;
     border: 10px solid #1a1e27; outline: 1px solid var(--line-hi);
     box-shadow: 0 30px 80px rgba(0,0,0,.55), 0 0 90px rgba(59,130,255,.18);
-    background: #0c111c;
+    background: #0d111c;
   }
   .tv-screen img { width: 68%; height: 100%; object-fit: contain; object-position: center; background: #0d111c; }
   .tv-screen .tv-ui {
@@ -236,44 +266,77 @@
   .tv-stand { width: 28%; height: 9px; margin: 0 auto; background: #1a1e27; border-radius: 0 0 8px 8px; }
   .tv-base { width: 46%; height: 5px; margin: 0 auto; background: #232834; border-radius: 4px; }
 
-  /* ---------- values ---------- */
+  .more-repos { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding: 22px 28px; border: 1px dashed var(--line-hi); border-radius: 20px; color: var(--fg-dim); }
+  .more-repos b { color: var(--fg); display: block; font-size: 16px; }
+  .more-repos span { font-size: 14.5px; }
+
+  /* ---------- approach ---------- */
   .values { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
   @media (max-width: 860px) { .values { grid-template-columns: 1fr; } }
   .value { padding: 28px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--card); transition: border-color .2s, transform .2s; }
   .value:hover { border-color: var(--line-hi); transform: translateY(-3px); }
   .value .v-icon { width: 48px; height: 48px; border-radius: 13px; display: grid; place-items: center; font-size: 24px; margin-bottom: 18px; background: linear-gradient(135deg, var(--orange-soft), var(--blue-soft)); color: var(--fg); border: 1px solid var(--line-hi); }
-  .value h3 { font-family: var(--font-display); font-size: 20px; margin: 0 0 8px; }
+  .value h3 { font-size: 19px; margin: 0 0 8px; letter-spacing: -.01em; }
   .value p { margin: 0; color: var(--fg-dim); font-size: 15px; }
 
-  /* ---------- cta ---------- */
+  /* ---------- cta with stage beams ---------- */
   .cta {
-    text-align: center; padding: 64px 28px; border-radius: 28px; border: 1px solid var(--line-hi);
-    background:
-      radial-gradient(500px 240px at 20% 0%, rgba(255,165,31,.16), transparent 70%),
-      radial-gradient(500px 240px at 80% 100%, rgba(59,130,255,.16), transparent 70%),
-      var(--card);
+    position: relative; isolation: isolate; overflow: hidden; text-align: center;
+    padding: 96px 28px 72px; border-radius: 28px; border: 1px solid var(--line-hi);
+    background: linear-gradient(180deg, #0a0c11, #07080b);
   }
-  .cta h2 { font-family: var(--font-display); font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin: 0 0 12px; letter-spacing: -.02em; }
-  .cta p { color: var(--fg-dim); margin: 0 auto 30px; max-width: 46ch; font-size: 17px; }
+  .cta .stage { position: absolute; inset: 0; z-index: -1; }
+  .cta .truss { position: absolute; top: 22px; left: 8%; right: 8%; height: 1px; background: linear-gradient(90deg, transparent, var(--line-hi) 12%, var(--line-hi) 88%, transparent); }
+  .beam {
+    position: absolute; top: 22px; left: var(--x); width: 46%; height: 150%; margin-left: -23%;
+    transform-origin: 50% 0; transform: rotate(var(--r));
+    background: linear-gradient(180deg, var(--c) 0%, transparent 78%);
+    clip-path: polygon(48.5% 0, 51.5% 0, 100% 100%, 0 100%);
+    opacity: .42; filter: blur(5px);
+    animation: sway var(--d) ease-in-out infinite alternate;
+  }
+  .lamp { position: absolute; top: 18px; left: var(--x); width: 9px; height: 9px; margin-left: -4.5px; border-radius: 50%; background: var(--c2); box-shadow: 0 0 14px 3px var(--c2); }
+  @keyframes sway { from { transform: rotate(calc(var(--r) - 5deg)); } to { transform: rotate(calc(var(--r) + 5deg)); } }
+  .cta .floor { position: absolute; left: -10%; right: -10%; bottom: -80px; height: 180px; background: radial-gradient(ellipse at 50% 100%, rgba(255,165,31,.28), rgba(59,130,255,.16) 45%, transparent 70%); filter: blur(10px); }
+  .cta .grid {
+    position: absolute; inset: 0; opacity: .5;
+    background-image: linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: linear-gradient(180deg, transparent, #000 70%); -webkit-mask-image: linear-gradient(180deg, transparent, #000 70%);
+  }
+  .cta h2 { font-size: clamp(1.7rem, 3.4vw, 2.4rem); font-weight: 700; letter-spacing: -.005em; margin: 0 0 12px; text-shadow: 0 2px 30px rgba(0,0,0,.6); }
+  .cta p { color: #b3b9c4; margin: 0 auto 30px; max-width: 46ch; font-size: 17px; text-shadow: 0 2px 24px rgba(0,0,0,.7); }
   .cta .actions { justify-content: center; }
 
   /* ---------- footer ---------- */
-  footer { margin-top: 90px; border-top: 1px solid var(--line); color: var(--fg-faint); font-size: 13.5px; }
-  footer .wrap { padding-block: 28px; display: flex; flex-wrap: wrap; gap: 14px; justify-content: space-between; align-items: center; }
-  footer nav { display: flex; gap: 22px; }
-  footer a { text-decoration: none; transition: color .15s; }
-  footer a:hover { color: var(--fg); }
+  footer { margin-top: 96px; border-top: 1px solid var(--line); background: linear-gradient(180deg, transparent, rgba(13,15,20,.8)); }
+  .foot-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-block: 56px 40px; }
+  .foot-brand .brand { margin-bottom: 14px; }
+  .foot-brand p { color: var(--fg-dim); font-size: 14.5px; margin: 0 0 18px; max-width: 34ch; }
+  .social { display: flex; gap: 10px; }
+  .social a { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 11px; border: 1px solid var(--line-hi); background: var(--card); font-size: 18px; transition: border-color .15s, background .15s, transform .15s; }
+  .social a:hover { border-color: var(--fg-faint); background: var(--card-hi); transform: translateY(-2px); }
+  footer h4 { margin: 4px 0 16px; font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--fg-faint); font-weight: 600; }
+  footer ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+  footer ul a { text-decoration: none; color: var(--fg-dim); font-size: 14.5px; transition: color .15s; }
+  footer ul a:hover { color: var(--fg); }
+  .foot-bottom { border-top: 1px solid var(--line); color: var(--fg-faint); font-size: 13.5px; }
+  .foot-bottom .wrap { padding-block: 22px; display: flex; flex-wrap: wrap; gap: 12px 24px; justify-content: space-between; align-items: center; }
+  .foot-bottom a { text-decoration: none; }
+  .foot-bottom a:hover { color: var(--fg); }
+  @media (max-width: 860px) { .foot-grid { grid-template-columns: 1fr 1fr; } .foot-brand { grid-column: 1 / -1; } }
 
-  @media (max-width: 640px) { .project { padding: 26px 20px; } .cta { padding: 44px 20px; } }
+  @media (max-width: 640px) { .project { padding: 26px 20px; } .cta { padding: 80px 20px 52px; } }
 
   /* ---------- reveal ---------- */
   .js .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
   .js .reveal.in { opacity: 1; transform: none; }
 
-  a:focus-visible, .btn:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
+  a:focus-visible, .btn:focus-visible, button:focus-visible { outline: 2px solid var(--orange); outline-offset: 3px; }
   @media (prefers-reduced-motion: reduce) {
     html { scroll-behavior: auto; }
     * { transition: none !important; }
+    .beam { animation: none; }
     .js .reveal { opacity: 1; transform: none; }
   }
 </style>
@@ -285,6 +348,9 @@
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-github" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></symbol>
+  <symbol id="i-chev" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
   <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
   <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m10 8 6 4-6 4V8Z"/></symbol>
   <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></symbol>
@@ -299,22 +365,48 @@
   <symbol id="i-cal" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18M8 14h3M8 18h6"/></symbol>
   <symbol id="i-remote" viewBox="0 0 24 24"><rect x="7" y="2" width="10" height="20" rx="3"/><circle cx="12" cy="8" r="2"/><path d="M10 14h4M10 18h4"/></symbol>
   <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
-  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></symbol>
-  <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76Z"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10ZM9 12l2 2 4-4"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7Z"/></symbol>
 </svg>
 
 <div class="bg-glow"></div>
 <div class="bg-grid"></div>
 
-<header class="nav">
+<header class="nav" id="nav">
   <div class="wrap nav-inner">
-    <a class="brand" href="#top">
-      <img src="assets/img/avatar.jpg" alt="" width="32" height="32">
+    <a class="brand" href="#top" aria-label="TheCraftedTech — Startseite">
+      <img src="assets/img/logo.svg" alt="" width="36" height="36">
       TheCraftedTech
     </a>
-    <nav class="nav-links" aria-label="Hauptnavigation">
-      <a href="#projekte">Projekte</a>
-      <a href="#prinzipien">Prinzipien</a>
+
+    <button class="burger" id="burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="navlinks">
+      <svg class="icon"><use href="#i-menu"/></svg>
+    </button>
+
+    <nav class="nav-links" id="navlinks" aria-label="Hauptnavigation">
+      <a href="#top">Start</a>
+      <div class="has-menu" id="projmenu">
+        <button class="menu-toggle" type="button" aria-haspopup="true" aria-expanded="false">
+          Projekte <svg class="icon"><use href="#i-chev"/></svg>
+        </button>
+        <div class="menu">
+          <a href="#opencue">
+            <span class="m-icon o"><svg class="icon"><use href="#i-sliders"/></svg></span>
+            <span><b>OpenCue</b><small>DMX-Lichtstellpult für Windows</small></span>
+          </a>
+          <a href="#hometv">
+            <span class="m-icon b"><svg class="icon"><use href="#i-tv"/></svg></span>
+            <span><b>Home TV</b><small>Live-TV für den Fire TV</small></span>
+          </a>
+          <hr>
+          <a href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">
+            <span class="m-icon g"><svg class="icon"><use href="#i-folder"/></svg></span>
+            <span><b>Alle Repositories</b><small>auf GitHub</small></span>
+          </a>
+        </div>
+      </div>
+      <a href="#arbeitsweise">Arbeitsweise</a>
       <a class="btn-nav" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">
         <svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> GitHub
       </a>
@@ -328,23 +420,17 @@
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <div class="eyebrow"><span class="dot"></span> Open Source · Selbst gebaut</div>
-        <h1>Tools, die man <span class="grad">wirklich benutzen</span> kann.</h1>
-        <p class="lede">Ich bin TheCraftedTech und baue eigene Software — von einem Lichtstellpult mit 3D-Bühne bis zu Live-Fernsehen für den Fire TV. Offen, lokal und ohne Umwege.</p>
+        <h1>Hi, ich bin <span class="grad">TheCraftedTech</span>.</h1>
+        <p class="lede">Ich baue eigene Tools und Software — von Weboberflächen über Minecraft-Plugins bis zu eingebetteter Hardware. Hier findest du meine Projekte, alle offen auf GitHub.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#projekte">Projekte ansehen <svg class="icon"><use href="#i-arrow"/></svg></a>
-          <a class="btn" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Auf GitHub folgen</a>
-        </div>
-        <div class="stats">
-          <div class="stat"><b>2</b><span>Veröffentlichte Projekte</span></div>
-          <div class="stat"><b>100&nbsp;%</b><span>Open Source</span></div>
-          <div class="stat"><b>GPL · MIT</b><span>Freie Lizenzen</span></div>
+          <a class="btn" href="https://github.com/TheCraftedTech" target="_blank" rel="noopener"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg> Profil auf GitHub</a>
         </div>
       </div>
 
       <div class="profile reveal">
         <div class="profile-card">
-          <img class="avatar" src="assets/img/avatar.jpg" alt="Profilbild von TheCraftedTech" width="400" height="400">
+          <img class="logo-big" src="assets/img/logo.svg" alt="Logo von TheCraftedTech: eine leuchtende Redstone-Clock" width="512" height="512">
           <div class="profile-meta">
             <h2>TheCraftedTech</h2>
             <p>@TheCraftedTech</p>
@@ -352,8 +438,8 @@
               <span class="chip">Python</span>
               <span class="chip">Kotlin</span>
               <span class="chip">JavaScript</span>
-              <span class="chip">Android / Fire TV</span>
               <span class="chip">Windows</span>
+              <span class="chip">Android</span>
             </div>
           </div>
         </div>
@@ -366,8 +452,8 @@
     <div class="wrap">
       <div class="section-head reveal">
         <p class="kicker">Projekte</p>
-        <h2 class="title">Woran ich gerade baue</h2>
-        <p>Zwei Projekte, beide frei verfügbar auf GitHub — mit Installer, Dokumentation und Quellcode.</p>
+        <h2 class="title">Eine Auswahl meiner Arbeit</h2>
+        <p>Frei verfügbar auf GitHub — mit Installer, Dokumentation und Quellcode.</p>
       </div>
 
       <!-- OpenCue -->
@@ -386,7 +472,7 @@
         <p class="tagline">Open-Source-Lichtstellpult für DMX — inspiriert von dot2 onPC, mit erweiterten Funktionen.</p>
         <p class="desc">Aus dem Windows-PC wird ein komplettes Lichtpult: Fixtures patchen, Cues und Effekte programmieren, das Ergebnis live in 3D sehen und die Show per Tablet steuern. Läuft offline, ohne Account und ohne Lizenzschlüssel — Ausgabe über Art-Net, sACN oder USB-DMX.</p>
 
-        <figure class="window" style="margin-inline:0">
+        <figure class="window">
           <div class="window-bar"><i></i><i></i><i></i><span>OpenCue — Demo-Show</span></div>
           <img src="assets/img/opencue-demo.webp" alt="OpenCue-Oberfläche mit 3D-Bühnensimulation, Cue-Liste, Executor und Fixture-Steuerung" width="1436" height="919" loading="lazy">
         </figure>
@@ -454,32 +540,37 @@
           </div>
         </div>
       </article>
+
+      <div class="more-repos reveal">
+        <div><b>Mehr Projekte folgen</b><span>Neue Veröffentlichungen landen zuerst auf GitHub.</span></div>
+        <a class="btn" href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">Alle Repositories <svg class="icon"><use href="#i-arrow"/></svg></a>
+      </div>
     </div>
   </section>
 
-  <!-- PRINZIPIEN -->
-  <section class="block" id="prinzipien">
+  <!-- ARBEITSWEISE -->
+  <section class="block" id="arbeitsweise">
     <div class="wrap">
       <div class="section-head reveal">
-        <p class="kicker">Prinzipien</p>
-        <h2 class="title">Wie ich Software baue</h2>
-        <p>Was beide Projekte gemeinsam haben.</p>
+        <p class="kicker">Arbeitsweise</p>
+        <h2 class="title">So arbeite ich</h2>
+        <p>Was mir bei meinen Projekten wichtig ist — unabhängig davon, was ich gerade baue.</p>
       </div>
       <div class="values">
         <div class="value reveal">
           <div class="v-icon"><svg class="icon"><use href="#i-code"/></svg></div>
-          <h3>Offen &amp; frei</h3>
-          <p>Quellcode auf GitHub unter GPL bzw. MIT-Lizenz. Nachlesen, selbst bauen, verbessern.</p>
+          <h3>Offen von Anfang an</h3>
+          <p>Der Quellcode ist öffentlich auf GitHub, unter freien Lizenzen wie GPL-3.0 und MIT. Jeder darf nachlesen, selbst bauen und verbessern.</p>
         </div>
         <div class="value reveal">
-          <div class="v-icon"><svg class="icon"><use href="#i-lock"/></svg></div>
-          <h3>Lokal &amp; ohne Konto</h3>
-          <p>Kein Cloud-Zwang, keine Accounts, keine Lizenzschlüssel — die Software läuft bei dir zu Hause.</p>
+          <div class="v-icon"><svg class="icon"><use href="#i-book"/></svg></div>
+          <h3>Gut dokumentiert</h3>
+          <p>README, Changelog und Anleitungen gehören zum Projekt dazu — damit man nicht raten muss, wie etwas installiert oder gebaut wird.</p>
         </div>
         <div class="value reveal">
-          <div class="v-icon"><svg class="icon"><use href="#i-wrench"/></svg></div>
-          <h3>Gebaut für den Alltag</h3>
-          <p>Fertige Installer und Dokumentation statt Bastelprojekt: Home TV läuft täglich auf einem Fire TV Stick 4K Max.</p>
+          <div class="v-icon"><svg class="icon"><use href="#i-shield"/></svg></div>
+          <h3>Nachprüfbar &amp; ehrlich</h3>
+          <p>Fertige Releases mit Prüfsummen und ein offener Teststatus: Bei Home TV steht dabei, was getestet wurde — und was nicht.</p>
         </div>
       </div>
     </div>
@@ -489,6 +580,21 @@
   <section class="block" style="padding-bottom:0">
     <div class="wrap">
       <div class="cta reveal">
+        <div class="stage" aria-hidden="true">
+          <div class="truss"></div>
+          <span class="beam" style="--x:14%; --r:-26deg; --c:rgba(255,165,31,.85); --d:7s"></span>
+          <span class="beam" style="--x:34%; --r:-9deg;  --c:rgba(59,130,255,.8);  --d:9s"></span>
+          <span class="beam" style="--x:50%; --r:2deg;   --c:rgba(255,106,77,.75); --d:8s"></span>
+          <span class="beam" style="--x:66%; --r:11deg;  --c:rgba(59,130,255,.8);  --d:10s"></span>
+          <span class="beam" style="--x:86%; --r:27deg;  --c:rgba(255,165,31,.85); --d:7.5s"></span>
+          <span class="lamp" style="--x:14%; --c2:#ffa51f"></span>
+          <span class="lamp" style="--x:34%; --c2:#3b82ff"></span>
+          <span class="lamp" style="--x:50%; --c2:#ff6a4d"></span>
+          <span class="lamp" style="--x:66%; --c2:#3b82ff"></span>
+          <span class="lamp" style="--x:86%; --c2:#ffa51f"></span>
+          <div class="grid"></div>
+          <div class="floor"></div>
+        </div>
         <h2>Mehr auf GitHub</h2>
         <p>Alle Projekte, Releases und der komplette Quellcode — folge mir, um neue Veröffentlichungen nicht zu verpassen.</p>
         <div class="actions">
@@ -500,26 +606,79 @@
 </main>
 
 <footer>
-  <div class="wrap">
-    <span>© 2026 TheCraftedTech</span>
-    <nav aria-label="Footer">
-      <a href="https://github.com/TheCraftedTech/opencue" target="_blank" rel="noopener">OpenCue</a>
-      <a href="https://github.com/TheCraftedTech/HomeTV" target="_blank" rel="noopener">Home TV</a>
-      <a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">GitHub</a>
-    </nav>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <a class="brand" href="#top"><img src="assets/img/logo.svg" alt="" width="36" height="36"> TheCraftedTech</a>
+      <p>Eigene Tools und Software, offen auf GitHub.</p>
+      <div class="social">
+        <a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener" aria-label="GitHub-Profil"><svg class="icon fill" viewBox="0 0 16 16"><use href="#i-github"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Seite</h4>
+      <ul>
+        <li><a href="#top">Start</a></li>
+        <li><a href="#projekte">Projekte</a></li>
+        <li><a href="#arbeitsweise">Arbeitsweise</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Projekte</h4>
+      <ul>
+        <li><a href="https://thecraftedtech.github.io/opencue/" target="_blank" rel="noopener">OpenCue</a></li>
+        <li><a href="https://github.com/TheCraftedTech/HomeTV" target="_blank" rel="noopener">Home TV</a></li>
+        <li><a href="https://github.com/TheCraftedTech?tab=repositories" target="_blank" rel="noopener">Alle Repositories</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>GitHub</h4>
+      <ul>
+        <li><a href="https://github.com/TheCraftedTech" target="_blank" rel="noopener">Profil</a></li>
+        <li><a href="https://github.com/TheCraftedTech/opencue/releases" target="_blank" rel="noopener">OpenCue-Downloads</a></li>
+        <li><a href="https://github.com/TheCraftedTech/HomeTV/releases" target="_blank" rel="noopener">Home-TV-Releases</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="wrap">
+      <span>© 2026 TheCraftedTech · Gehostet auf GitHub Pages</span>
+      <a href="#top">Nach oben ↑</a>
+    </div>
   </div>
 </footer>
 
 <script>
   (function () {
+    // scroll reveal
     var els = document.querySelectorAll('.reveal');
-    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); return; }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
-      });
-    }, { threshold: 0.12 });
-    els.forEach(function (e) { io.observe(e); });
+    if (!('IntersectionObserver' in window)) { els.forEach(function (e) { e.classList.add('in'); }); }
+    else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) { if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); } });
+      }, { threshold: 0.12 });
+      els.forEach(function (e) { io.observe(e); });
+    }
+
+    // mobile nav + projects dropdown
+    var nav = document.getElementById('nav');
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('projmenu');
+    var toggle = menu.querySelector('.menu-toggle');
+
+    function setNav(open) {
+      nav.classList.toggle('open', open);
+      burger.setAttribute('aria-expanded', open);
+      burger.querySelector('use').setAttribute('href', open ? '#i-close' : '#i-menu');
+    }
+    function setMenu(open) { menu.classList.toggle('open', open); toggle.setAttribute('aria-expanded', open); }
+
+    burger.addEventListener('click', function () { setNav(!nav.classList.contains('open')); });
+    toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('open')); });
+    document.addEventListener('click', function (e) { if (!menu.contains(e.target)) setMenu(false); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { setMenu(false); setNav(false); } });
+    document.querySelectorAll('#navlinks a').forEach(function (a) {
+      a.addEventListener('click', function () { setMenu(false); setNav(false); });
+    });
   })();
 </script>
 </body>
